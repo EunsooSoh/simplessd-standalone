@@ -19,7 +19,9 @@
 
 #include "util/convert.hh"
 
+#include <cstring>
 #include <regex>
+#include <strings.h>
 
 #include "simplessd/sim/trace.hh"
 
