@@ -36,3 +36,14 @@ compile_flags.txt
 # VSCode Specific
 .vscode/
 *.code-workspace
+
+# Simulation logs and analysis output
+output/
+gc_events.csv
+block_erase.csv
+debug.txt
+log.txt
+
+# Trace data (raw download and converted)
+trace/raw/
+trace/converted/
