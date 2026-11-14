@@ -40,9 +40,11 @@ SSD 설정(`simplessd/config/nexus5.cfg` 또는 `sample.cfg`)에서 아래를 �
 | `[ftl]` `MappingMode` | `1` (FAST), `0`은 page mapping |
 | `[ftl]` `FASTRWLogBlocks` | RW 로그 블록 수 (기본 8) |
 | `[ftl]` `FASTRWGCPolicy` | `0`: 가장 오래된 RW 로그(기존), `1`: greedy(유효 sector가 가장 적은 RW 로그) |
+| `[ftl]` `FASTWriteBuffer` | `0`: 사용 안 함(기존), `1`: RW 로그 쓰기 버퍼(lane 수만큼 모아 슈퍼페이지 1개로 기록, flush마다 chip 순환) |
 
 SW 로그는 블록이 1개뿐이라 정책은 RW 로그에만 적용된다.
 결과 통계는 `log.txt`의 `ftl.fast.*` 항목이다(`waf`, `rw_victims`, `merge.switch/partial/full`, `merge.sector_copies`).
+채널·chip별 NAND write/erase 횟수는 `write.channelN`, `write.chipN`, `erase.channelN`, `erase.chipN`, 쓰기 버퍼 동작은 `buffer.flushes`, `buffer.absorbed`, `buffer.write_ops`로 본다.
 주기 로그가 여러 번 찍히므로 마지막 값이 최종 결과이다.
 
 ### 테스트
